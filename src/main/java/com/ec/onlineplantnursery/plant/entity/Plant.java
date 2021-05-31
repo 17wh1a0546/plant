@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.TableGenerator;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -15,11 +16,11 @@ import javax.validation.constraints.Size;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
+
 @Entity
-@Table(name="Plants")
-@ApiModel(value="Plant Bean")
+@Table(name = "plant")
+@TableGenerator(name = "plant_generator", initialValue = 0, allocationSize = 50)
 public class Plant {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	@ApiModelProperty(name="Plant ID",required=true)
@@ -66,6 +67,29 @@ public class Plant {
 	@Positive
 	private double plantCost;
 	
+	
+	public Plant() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Plant(Integer plantId, Integer plantHeight, Integer plantsStock, String commonName, String bloomTime,
+			String medicinalOrCulinaryUse, String difficultyLevel, String temparature, String typeOfPlant,
+			String plantDescription, String plantSpread, double plantCost) {
+		super();
+		this.plantId = plantId;
+		this.plantHeight = plantHeight;
+		this.plantSpread = plantSpread;
+		this.commonName = commonName;
+		this.bloomTime = bloomTime;
+		this.medicinalOrCulinaryUse = medicinalOrCulinaryUse;
+		this.difficultyLevel = difficultyLevel;
+		this.temparature = temparature;
+		this.typeOfPlant = typeOfPlant;
+		this.plantDescription = plantDescription;
+		this.plantsStock = plantsStock;
+		this.plantCost = plantCost;
+	}
 	public Integer getPlantId() {
 		return plantId;
 	}
@@ -138,27 +162,9 @@ public class Plant {
 	public void setPlantCost(double plantCost) {
 		this.plantCost = plantCost;
 	}
-	public Plant(Integer plantId, Integer plantHeight, String plantSpread, String commonName, String bloomTime,
-			String medicinalOrCulinaryUse, String difficultyLevel, String temparature, String typeOfPlant,
-			String plantDescription, Integer plantsStock, double plantCost) {
-		super();
-		this.plantId = plantId;
-		this.plantHeight = plantHeight;
-		this.plantSpread = plantSpread;
-		this.commonName = commonName;
-		this.bloomTime = bloomTime;
-		this.medicinalOrCulinaryUse = medicinalOrCulinaryUse;
-		this.difficultyLevel = difficultyLevel;
-		this.temparature = temparature;
-		this.typeOfPlant = typeOfPlant;
-		this.plantDescription = plantDescription;
-		this.plantsStock = plantsStock;
-		this.plantCost = plantCost;
-	}
-	public Plant() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+	
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -255,9 +261,6 @@ public class Plant {
 				+ ", typeOfPlant=" + typeOfPlant + ", plantDescription=" + plantDescription + ", plantsStock="
 				+ plantsStock + ", plantCost=" + plantCost + "]";
 	}
-	
-	
-	
 	
 	
 }

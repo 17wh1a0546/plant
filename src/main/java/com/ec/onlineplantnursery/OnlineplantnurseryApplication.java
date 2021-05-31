@@ -11,10 +11,9 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-
-@Configuration
-@EnableSwagger2
 @SpringBootApplication
+@EnableSwagger2
+@Configuration
 public class OnlineplantnurseryApplication {
 
 	public static void main(String[] args) {
@@ -29,7 +28,9 @@ public class OnlineplantnurseryApplication {
 	
 	private ApiInfo apiInfo()
 	{
-		return new ApiInfoBuilder().title("Online Plant Nursery").description("Customer can order requied planters,plants,seeds")
-				.version("onlinePlantNurseryV1.1").build();		}
+		return new ApiInfoBuilder().title("My Nursery Store").description("contains api to manipulate nursery")
+				.version("myproductappV1.1").build();
+	}
+	
 
 }

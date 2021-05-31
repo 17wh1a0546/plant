@@ -3,11 +3,16 @@ package com.ec.onlineplantnursery.order.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Service;
 
 import com.ec.onlineplantnursery.order.entity.Order;
+import com.ec.onlineplantnursery.planter.entity.Planter;
 
-public interface IOrderRepository extends JpaRepository<Order, Integer>, CustomOrderRepository {
+
+
+public interface CustomOrderRepository {
+	
+	public List<Planter> getPlanterByOrderId(int orderId);
+
 	
 
 }

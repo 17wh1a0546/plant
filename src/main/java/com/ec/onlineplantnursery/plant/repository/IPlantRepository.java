@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.ec.onlineplantnursery.plant.entity.Plant;
 
-public interface IPlantRepository{
-	Plant addPlant(Plant plant);
+public interface IPlantRepository extends JpaRepository<Plant, Integer>,CustomPlantRepository{
+	/**Plant addPlant(Plant plant);
 
 	Plant updatePlant(Plant plant);
 
@@ -19,5 +19,5 @@ public interface IPlantRepository{
 
 	List<Plant> viewAllPlants();
 
-	List<Plant> viewAllPlants(String typeOfPlant);
+	List<Plant> viewAllPlants(String typeOfPlant);**/
 }
